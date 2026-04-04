@@ -1,0 +1,22 @@
+.custom-button {
+  width: 260px;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+
+  /* Match card background */
+  background-color: #0b3d6e; 
+  color: white;
+
+  /* Add subtle border so it’s visible */
+  border: 2px solid #4aa3ff;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-button:hover {
+  background-color: #a9c4df;
+  transform: scale(1.03);
+}
