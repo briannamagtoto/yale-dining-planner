@@ -4,6 +4,8 @@ import MealsPage from './MealsPage'
 import BudgetPage from './BudgetPage'
 import SemesterBudgetPage from './SemesterBudgetPage';
 import './App.css'
+import WeeklyBudgetPage from './WeeklyBudgetPage';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Route path="/meals" element={<MealsPage />} />
       <Route path="/budget" element={<BudgetPage />} />
       <Route path="/semester-budget" element={<SemesterBudgetPage />} />
+      <Route path="/weekly-budget" element={<WeeklyBudgetPage />} />
     </Routes>
   );
 }
