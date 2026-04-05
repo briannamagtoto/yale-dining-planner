@@ -17,7 +17,7 @@ function Home() {
         <div className="button-container">
           <Button title="Meals this Week" onClick={() => navigate('/meals')} />
           <Button title="Budget Analytics" onClick={() => navigate('/budget')} />
-          <Button title="Yale Dining Menus" onClick={() => navigate('/menus')} />
+          <Button title="Yale Dining Menus" onClick={() => window.open('https://hospitality.yale.edu/menus', '_blank')} />
         </div>
       </div>
     </div>
