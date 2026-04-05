@@ -81,6 +81,14 @@ export default function WeeklyBudgetPage() {
     }
   }
 
+  function handleIncreaseMealSwipes() {
+  setWeeklyBudget(prev => ({ ...prev, mealSwipesBudget: prev.mealSwipesBudget + 1 }));
+  }
+
+  function handleDecreaseMealSwipes() {
+    setWeeklyBudget(prev => ({ ...prev, mealSwipesBudget: Math.max(0, prev.mealSwipesBudget - 1) }));
+  }
+
   return (
     <div className="weekly-container">
       <nav className="weekly-nav">
@@ -134,12 +142,20 @@ export default function WeeklyBudgetPage() {
           </div>
         </div>
 
-        <div className="weekly-summary-card">
-          <h3>Weekly Budget</h3>
-          <p className="weekly-summary-value">
-            {diningPointsBudget} Dining Points | {mealSwipesBudget} Meal Swipes
-          </p>
-        </div>
+  <div className="weekly-summary-card">
+    <h3>Weekly Budget</h3>
+    <p className="weekly-summary-value">
+      {diningPointsBudget} Dining Points | {mealSwipesBudget} Meal Swipes
+    </p>
+    <div className="budget-btn-row">
+      <button className="budget-action-btn" onClick={handleIncreaseMealSwipes}>
+        + Meal Swipe
+      </button>
+      <button className="budget-action-btn" onClick={handleDecreaseMealSwipes}>
+        - Meal Swipe
+      </button>
+    </div>
+  </div>
       </div>
 
       {/* Status */}
