@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './Button.css'
 
-function Button({title}) {
+function Button({title, onClick}) {
 
-    return <button class="custom-button">{title}</button>
+    return <button class="custom-button" onClick={onClick}>{title}</button>
 
 }
 
