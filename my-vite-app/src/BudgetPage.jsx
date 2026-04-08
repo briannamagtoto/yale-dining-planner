@@ -9,10 +9,9 @@ function BudgetPage() {
 
       <div className="card">
 
-
-        <div className="home-button-container">
-            <Button title="Back to Home" onClick={() => navigate('/')} />
-        </div>
+      <div className="home-button-container">
+        <button className="back-btn" onClick={() => navigate('/')}>Back to Home</button>
+      </div>
 
         <img src={yaleLogo} alt="Yale Logo" className="logo" />
 
