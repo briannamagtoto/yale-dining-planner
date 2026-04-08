@@ -1,8 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import { useBudget } from './BudgetContext';
 import './MealsPage.css';
 
 function MealsPage() {
   const navigate = useNavigate();
+  const { weeklyBudget } = useBudget();
+  const diningPointsLeft = weeklyBudget.diningPointsBudget - weeklyBudget.diningPointsSpent;
+  const mealSwipesLeft = weeklyBudget.mealSwipesBudget - weeklyBudget.mealSwipesSpent;
 
   const days = [
     { name: 'Monday', date: 'Feb 23', meals: 2 },
@@ -23,16 +27,16 @@ function MealsPage() {
       <aside className="week-total-card">
         <h3>Week Total ⓘ</h3>
         <div className="stat">
-          <span className="stat-value">14</span>
+          <span className="stat-value">{mealSwipesLeft}</span>
           <span className="stat-label">swipes left</span>
         </div>
         <div className="stat">
-          <span className="stat-value">62.20</span>
+          <span className="stat-value">{diningPointsLeft}</span>
           <span className="stat-label">points left</span>
         </div>
         <div className="stat">
           <span className="stat-value">$0.00</span>
-          <span className="stat-label">dollars left</span>
+          <span className="stat-label">dollars spent</span>
         </div>
       </aside>
 
