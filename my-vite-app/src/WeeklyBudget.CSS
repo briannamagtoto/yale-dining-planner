@@ -208,12 +208,13 @@
 
 /* Status card */
 .weekly-status-card {
-  width: 100%;
-  max-width: 1000px;
+  /*width: 100%;
+  max-width: 1000px;*/
   background-color: #b8cce4;
   border-radius: 20px;
   padding: 28px;
   text-align: center;
+  flex: 1;
 }
 
 .weekly-status-card p {
@@ -222,4 +223,12 @@
   font-weight: 700;
   color: #111;
   line-height: 1.6;
+}
+
+.weekly-summary-display-values {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 4;
+  margin-bottom: 16px; 
 }

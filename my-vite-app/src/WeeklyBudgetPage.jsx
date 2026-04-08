@@ -63,7 +63,43 @@ export default function WeeklyBudgetPage() {
 
   const diningPointsRemaining = diningPointsBudget - diningPointsSpent;
   const mealSwipesRemaining   = mealSwipesBudget - mealSwipesSpent;
-  const isOnTrack = diningPointsRemaining >= 0;
+
+  const today = new Date();       
+  let dayOfWeek = today.getDay();
+  if (dayOfWeek === 0) {
+    dayOfWeek = 7;
+  }
+
+  const totalDaysInWeek = 7;
+
+
+
+  // Assuming week ends on Sunday
+  //const daysLeft = 7 - dayOfWeek;
+
+  const budgetProgress = (diningPointsBudget - diningPointsRemaining) / diningPointsBudget;
+
+  const daysCompleted = dayOfWeek;
+  const weekProgress = daysCompleted / totalDaysInWeek;
+
+
+  const tolerance = 0.1; // 10% margin
+  const onTrack = Math.abs(weekProgress - budgetProgress) <= tolerance;
+  const lowSpending = budgetProgress < weekProgress - tolerance;
+  const highSpending = budgetProgress > weekProgress + tolerance;
+
+
+  const spendingMessage = highSpending
+    ? 'Overspending for this Week'
+    : lowSpending
+      ? 'Underspending for this Week'
+      : 'On Track for this Week';
+
+  const adviceMessage = highSpending
+    ? 'Consider spending less'
+    : lowSpending
+      ? 'Consider spending more'
+      : 'Good Job!';
 
   function handleIncrease() {
     const val = parseFloat(adjustValue);
@@ -86,7 +122,7 @@ export default function WeeklyBudgetPage() {
   }
 
   function handleDecreaseMealSwipes() {
-    setWeeklyBudget(prev => ({ ...prev, mealSwipesBudget: Math.max(0, prev.mealSwipesBudget - 1) }));
+    setWeeklyBudget(prev => ({ ...prev, mealSwipesBudget: Math.max(1, prev.mealSwipesBudget - 1) }));
   }
 
   return (
@@ -159,14 +195,37 @@ export default function WeeklyBudgetPage() {
       </div>
 
       {/* Status */}
+
+      <div className="weekly-bottom-row">
+
+        <div className="weekly-status-card">
+          <p className="weekly-summary-display-values">
+            Points Spent this Week: {diningPointsBudget - diningPointsRemaining}
+          </p>
+           <p className="weekly-summary-display-values">
+            Points Remaining this Week: {diningPointsRemaining} 
+          </p>
+          <p className="weekly-summary-display-values">
+            Days Remaining this Week: {totalDaysInWeek - dayOfWeek} 
+          </p>
+        </div>
+
       <div className="weekly-status-card">
         <p>
-          {isOnTrack
-            ? 'Points Spending: On track for the week'
-            : 'Points Spending: Over budget this week!'}
+          {spendingMessage}
         </p>
-        <p>{isOnTrack ? 'Good Job!' : 'Consider adjusting your budget.'}</p>
+        <p>{adviceMessage}</p>
       </div>
+
+     
+
+      </div>
+
+
+
+
+
+      
     </div>
   );
 }
