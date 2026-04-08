@@ -17,6 +17,11 @@ function BudgetPage() {
 
         <h1>Budget Analytics Menu</h1>
 
+        <div class="description">
+          <p>Welcome to the Budget Analytics Menu! Here you can analyze your weekly and semester spending</p>
+          <br/>
+        </div>
+
         <div className="button-container">
           <Button title="Semester Budget Overview" onClick={() => navigate('/semester-budget')} />
           <Button title="Weekly Budget Oveview" onClick={() => navigate('/weekly-budget')} />

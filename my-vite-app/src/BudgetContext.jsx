@@ -11,7 +11,7 @@ export function BudgetProvider({ children }) {
     diningPointsBudget: 40,
     diningPointsSpent: 16,
     mealSwipesBudget: 14,
-    mealSwipesSpent: 0,
+    mealSwipesSpent: 3,
   });
 
   return (
