@@ -5,6 +5,7 @@ import BudgetPage from './BudgetPage'
 import SemesterBudgetPage from './SemesterBudgetPage';
 import './App.css'
 import WeeklyBudgetPage from './WeeklyBudgetPage';
+import DayPage from './DayPage';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="/budget" element={<BudgetPage />} />
       <Route path="/semester-budget" element={<SemesterBudgetPage />} />
       <Route path="/weekly-budget" element={<WeeklyBudgetPage />} />
+      <Route path="/day-meals/:dayId" element={<DayPage />} />
     </Routes>
   );
 }

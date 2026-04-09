@@ -21,7 +21,7 @@ function MealsPage() {
       </button>
 
       <aside className="week-total-card">
-        <h3>Week Total ⓘ</h3>
+        <h3>Week Total</h3>
         <div className="stat">
           <span className="stat-value">14</span>
           <span className="stat-label">swipes left</span>
@@ -38,13 +38,13 @@ function MealsPage() {
 
       <main className="calendar-view">
         <header className="meals-header">
-          <h1>Meals this Week ⓘ</h1>
+          <h1>Meals this Week</h1>
           <p className="date-range">February 23 - March 1</p>
         </header>
 
         <div className="days-list">
           {days.map((day) => (
-            <button key={day.name} className="day-row-btn">
+            <button key={day.name} className="day-row-btn" onClick={() => navigate(`/day-meals/${day.name.toLowerCase()}`)}>
               <div className="day-info">
                 <span className="day-name">{day.name}</span>
                 <span className="day-date">{day.date}</span>
