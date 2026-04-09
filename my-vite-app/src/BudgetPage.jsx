@@ -9,14 +9,18 @@ function BudgetPage() {
 
       <div className="card">
 
-
-        <div className="home-button-container">
-            <Button title="Back to Home" onClick={() => navigate('/')} />
-        </div>
+      <div className="home-button-container">
+        <button className="back-btn" onClick={() => navigate('/')}>Back to Home</button>
+      </div>
 
         <img src={yaleLogo} alt="Yale Logo" className="logo" />
 
         <h1>Budget Analytics Menu</h1>
+
+        <div class="description">
+          <p>Welcome to the Budget Analytics Menu! Here you can analyze your weekly and semester spending</p>
+          <br/>
+        </div>
 
         <div className="button-container">
           <Button title="Semester Budget Overview" onClick={() => navigate('/semester-budget')} />

@@ -185,10 +185,10 @@ export default function WeeklyBudgetPage() {
     </p>
     <div className="budget-btn-row">
       <button className="budget-action-btn" onClick={handleIncreaseMealSwipes}>
-        + Meal Swipe
+        Increase Meal Swipe
       </button>
       <button className="budget-action-btn" onClick={handleDecreaseMealSwipes}>
-        - Meal Swipe
+        Decrease Meal Swipe
       </button>
     </div>
   </div>
@@ -197,8 +197,8 @@ export default function WeeklyBudgetPage() {
       {/* Status */}
 
       <div className="weekly-bottom-row">
-
         <div className="weekly-status-card">
+          <h3>Overview of Weekly Points Spending</h3>
           <p className="weekly-summary-display-values">
             Points Spent this Week: {diningPointsBudget - diningPointsRemaining}
           </p>

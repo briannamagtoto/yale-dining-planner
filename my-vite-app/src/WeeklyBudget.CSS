@@ -207,28 +207,39 @@
 }
 
 /* Status card */
+
 .weekly-status-card {
-  /*width: 100%;
-  max-width: 1000px;*/
+  flex: 1;
   background-color: #b8cce4;
   border-radius: 20px;
-  padding: 28px;
-  text-align: center;
-  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.weekly-status-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
 }
 
 .weekly-status-card p {
-  margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #111;
-  line-height: 1.6;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
 }
 
 .weekly-summary-display-values {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 600;
   color: #111;
-  line-height: 4;
-  margin-bottom: 16px; 
+  line-height: 1.4;
+  margin: 0;
 }

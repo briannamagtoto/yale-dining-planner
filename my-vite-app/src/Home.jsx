@@ -14,9 +14,14 @@ function Home() {
 
         <h1>Welcome to Yale Dining Planner</h1>
 
+        <div>
+          <p>Track your dining points and meal swipes, plan your weekly budget, and analyze your spending habits with ease.</p>
+          <br/>
+        </div>
+
         <div className="button-container">
-          <Button title="Meals this Week" onClick={() => navigate('/meals')} />
-          <Button title="Budget Analytics" onClick={() => navigate('/budget')} />
+          <Button title="Log Meals this Week" onClick={() => navigate('/meals')} />
+          <Button title="Analyze Spending" onClick={() => navigate('/budget')} />
           <Button title="Yale Dining Menus" onClick={() => window.open('https://hospitality.yale.edu/menus', '_blank')} />
         </div>
       </div>

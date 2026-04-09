@@ -30,9 +30,20 @@ html, body {
 /* Home button at top-left */
 .home-button-container {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 24px;
+  left: 40px;
   z-index: 10;
+}
+
+.home-button-container .back-btn {
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: normal;
+  border: none;
+}
+
+.back-btn:hover {
+  background-color: #3a5a8a;
 }
 
 /* Card container */
