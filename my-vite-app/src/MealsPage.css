@@ -122,3 +122,73 @@
   .meal-count {
     font-size: 1rem;
   }
+
+
+  .week-total-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+
+  .info-btn {
+    background-color: #0b3d6e;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-btn:hover {
+    background-color: #082c50;
+  }
+
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal {
+    background: white;
+    color: #0b3d6e;
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+  }
+
+  .modal button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    background-color: #0b3d6e;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .meals-header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+.info-btn-dark-outline {
+  border: 2px solid white; /* Dark blue outline */
+}

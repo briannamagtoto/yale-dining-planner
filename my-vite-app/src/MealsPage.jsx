@@ -1,12 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { useBudget } from './BudgetContext';
 import './MealsPage.css';
+import { useState } from 'react';
 
 function MealsPage() {
   const navigate = useNavigate();
   const { weeklyBudget, mealsByDay } = useBudget();
   const diningPointsLeft = weeklyBudget.diningPointsBudget - weeklyBudget.diningPointsSpent;
   const mealSwipesLeft = weeklyBudget.mealSwipesBudget - weeklyBudget.mealSwipesSpent;
+
+
+  const [showTotalInfo, setShowTotalInfo] = useState(false);
+  const [showMealsInfo, setShowMealsInfo] = useState(false); 
 
   const days = [
     { name: 'Monday', date: 'Feb 23' },
@@ -25,7 +30,15 @@ function MealsPage() {
       </button>
 
       <aside className="week-total-card">
-        <h3>Week Total</h3>
+        <div className="week-total-header">
+          <h3>Week Total</h3>
+          <button 
+            className="info-btn"
+            onClick={() => setShowTotalInfo(true)}
+          >
+            i
+          </button>
+        </div>
         <div className="stat">
           <span className="stat-value">{mealSwipesLeft}</span>
           <span className="stat-label">swipes left</span>
@@ -42,7 +55,15 @@ function MealsPage() {
 
       <main className="calendar-view">
         <header className="meals-header">
-          <h1>Meals this Week</h1>
+          <div className="meals-header-top">
+            <h1>Meals this Week</h1>
+            <button 
+              className="info-btn info-btn-dark-outline" 
+              onClick={() => setShowMealsInfo(true)}
+            >
+              i
+            </button>
+          </div>
           <p className="date-range">February 23 - March 1</p>
         </header>
 
@@ -58,6 +79,34 @@ function MealsPage() {
           ))}
         </div>
       </main>
+
+      {showTotalInfo && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <p>
+              Remaining meal resources given the budget you set. You can modify your budget under the Analyze Spending section.
+            </p>
+            <button onClick={() => setShowTotalInfo(false)}>
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
+
+      {showMealsInfo && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <p>
+              This page shows all meals you've logged this week (swipes, points, and out of pocket money use). Click on a day to view or edit the day's meals.
+            </p>
+            <button onClick={() => setShowMealsInfo(false)}>
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
+
+      
     </div>
   );
 }
