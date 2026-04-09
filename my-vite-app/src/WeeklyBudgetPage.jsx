@@ -231,13 +231,7 @@ export default function WeeklyBudgetPage() {
             <span className="stat-advice">{adviceMessage}</span>
           </div>
         </div>
-      </div>
-
-
-
-
-
-      
+      </div>      
     </div>
   );
 }
