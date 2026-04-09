@@ -1,25 +1,39 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import { useBudget } from './BudgetContext';
 import './DayPage.css';
 
 const MOCK_DAYS = {
-    monday: { name: 'Monday', date: 'February 23' },
-    tuesday: { name: 'Tuesday', date: 'February 24' },
-    wednesday: { name: 'Wednesday', date: 'February 25' },
-    thursday: { name: 'Thursday', date: 'February 26' },
-    friday: { name: 'Friday', date: 'February 27' },
-    saturday: { name: 'Saturday', date: 'February 28' },
-    sunday: { name: 'Sunday', date: 'March 1' },
+    monday:    { name: 'Monday',    date: 'February 23', index: 0 },
+    tuesday:   { name: 'Tuesday',   date: 'February 24', index: 1 },
+    wednesday: { name: 'Wednesday', date: 'February 25', index: 2 },
+    thursday:  { name: 'Thursday',  date: 'February 26', index: 3 },
+    friday:    { name: 'Friday',    date: 'February 27', index: 4 },
+    saturday:  { name: 'Saturday',  date: 'February 28', index: 5 },
+    sunday:    { name: 'Sunday',    date: 'March 1',     index: 6 },
 };
 
 function DayPage() {
   const navigate = useNavigate();
   const { dayId } = useParams();
   const dayData = MOCK_DAYS[dayId] || MOCK_DAYS.monday;
+  const { mealsByDay, weeklyBudget } = useBudget();
+  const meals = mealsByDay[dayId] ?? [];
 
-  const mockMeals = [
-    { id: 1, time: '8:30AM', location: 'Breakfast at The Elm', cost: '7.80 points' },
-    { id: 2, time: '2:30PM', location: 'Lunch at Silliman', cost: '1 Swipe' },
-  ];
+  const swipesRemaining = weeklyBudget.mealSwipesBudget - weeklyBudget.mealSwipesSpent;
+  const pointsRemaining = weeklyBudget.diningPointsBudget - weeklyBudget.diningPointsSpent;
+  const baseSwipes = Math.floor(swipesRemaining / 7);
+  const extraSwipeDays = swipesRemaining % 7;
+  const daySwipesAlloc = baseSwipes + (dayData.index < extraSwipeDays ? 1 : 0);
+  const dayPointsAlloc = pointsRemaining / 7;
+
+  const swipesUsed = meals.filter((m) => m.cost.toLowerCase().includes('swipe')).length;
+  const pointsUsed = meals.reduce((sum, m) => {
+    const match = m.cost.match(/^([\d.]+)\s*points?/i);
+    return sum + (match ? parseFloat(match[1]) : 0);
+  }, 0);
+
+  const daySwipes = daySwipesAlloc - swipesUsed;
+  const dayPoints = Math.max(0, dayPointsAlloc - pointsUsed).toFixed(2);
 
   return (
     <div className="day-page-container">
@@ -39,16 +53,16 @@ function DayPage() {
         <aside className="day-total-card">
           <h3>Day Total</h3>
           <div className="day-stat">
-            <span className="day-stat-value">1</span>
+            <span className="day-stat-value">{daySwipes}</span>
             <span className="day-stat-label">swipes left</span>
           </div>
           <div className="day-stat">
-            <span className="day-stat-value">2.20</span>
+            <span className="day-stat-value">{dayPoints}</span>
             <span className="day-stat-label">points left</span>
           </div>
           <div className="day-stat">
             <span className="day-stat-value">$0.00</span>
-            <span className="day-stat-label">dollars left</span>
+            <span className="day-stat-label">dollars spent</span>
           </div>
         </aside>
 
@@ -61,23 +75,27 @@ function DayPage() {
           </div>
 
           <div className="meals-list-container">
-            {mockMeals.map((meal) => (
-              <div key={meal.id} className="meal-item-row">
-                <div className="meal-card-info">
-                  <span className="meal-time">{meal.time}</span>
-                  <span className="meal-desc">{meal.location}</span>
-                  <span className="meal-cost-badge">{meal.cost}</span>
+            {meals.length === 0 ? (
+              <p className="no-meals-text">No meals logged yet.</p>
+            ) : (
+              meals.map((meal) => (
+                <div key={meal.id} className="meal-item-row">
+                  <div className="meal-card-info">
+                    <span className="meal-time">{meal.time}</span>
+                    <span className="meal-desc">{meal.location}</span>
+                    <span className="meal-cost-badge">{meal.cost}</span>
+                  </div>
+                  <div className="meal-actions">
+                    <button className="icon-btn delete-btn">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                    </button>
+                    <button className="icon-btn edit-btn">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </button>
+                  </div>
                 </div>
-                <div className="meal-actions">
-                  <button className="icon-btn delete-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
-                  </button>
-                  <button className="icon-btn edit-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
           <button className="add-meal-btn">

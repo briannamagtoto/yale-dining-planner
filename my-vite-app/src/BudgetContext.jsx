@@ -11,7 +11,19 @@ export function BudgetProvider({ children }) {
     diningPointsBudget: 40,
     diningPointsSpent: 16,
     mealSwipesBudget: 14,
-    mealSwipesSpent: 3,
+    mealSwipesSpent: 1,
+  });
+  const [mealsByDay, setMealsByDay] = useState({
+    monday: [
+      { id: 1, time: '8:30AM', location: 'Breakfast at The Elm', cost: '16 points' },
+      { id: 2, time: '2:30PM', location: 'Lunch at Silliman', cost: '1 Swipe' },
+    ],
+    tuesday: [],
+    wednesday: [],
+    thursday: [],
+    friday: [],
+    saturday: [],
+    sunday: [],
   });
 
   return (
@@ -20,6 +32,7 @@ export function BudgetProvider({ children }) {
       mealSwipes, setMealSwipes,
       semesterDays, setSemesterDays,
       weeklyBudget, setWeeklyBudget,
+      mealsByDay, setMealsByDay,
     }}>
       {children}
     </BudgetContext.Provider>

@@ -64,11 +64,7 @@ export default function WeeklyBudgetPage() {
   const diningPointsRemaining = diningPointsBudget - diningPointsSpent;
   const mealSwipesRemaining   = mealSwipesBudget - mealSwipesSpent;
 
-  const today = new Date();       
-  let dayOfWeek = today.getDay();
-  if (dayOfWeek === 0) {
-    dayOfWeek = 7;
-  }
+  const dayOfWeek = 1; // Week starts on Monday
 
   const totalDaysInWeek = 7;
 
@@ -195,30 +191,46 @@ export default function WeeklyBudgetPage() {
       </div>
 
       {/* Status */}
-
       <div className="weekly-bottom-row">
         <div className="weekly-status-card">
-          <h3>Overview of Weekly Points Spending</h3>
-          <p className="weekly-summary-display-values">
-            Points Spent this Week: {diningPointsBudget - diningPointsRemaining}
-          </p>
-           <p className="weekly-summary-display-values">
-            Points Remaining this Week: {diningPointsRemaining} 
-          </p>
-          <p className="weekly-summary-display-values">
-            Days Remaining this Week: {totalDaysInWeek - dayOfWeek} 
-          </p>
+          <h3>Points Overview</h3>
+          <div className="stat-row">
+            <span className="stat-label">Spent</span>
+            <span className="stat-value">{diningPointsBudget - diningPointsRemaining}</span>
+          </div>
+          <div className="stat-row">
+            <span className="stat-label">Remaining</span>
+            <span className="stat-value">{diningPointsRemaining}</span>
+          </div>
+          <div className="stat-row">
+            <span className="stat-label">Days Left</span>
+            <span className="stat-value">{totalDaysInWeek - dayOfWeek}</span>
+          </div>
         </div>
 
-      <div className="weekly-status-card">
-        <p>
-          {spendingMessage}
-        </p>
-        <p>{adviceMessage}</p>
-      </div>
+        <div className="weekly-status-card">
+          <h3>Meal Swipes Overview</h3>
+          <div className="stat-row">
+            <span className="stat-label">Spent</span>
+            <span className="stat-value">{mealSwipesBudget - mealSwipesRemaining}</span>
+          </div>
+          <div className="stat-row">
+            <span className="stat-label">Remaining</span>
+            <span className="stat-value">{mealSwipesRemaining}</span>
+          </div>
+        </div>
 
-     
-
+        <div className="weekly-status-card">
+          <h3>Spending Status</h3>
+          <div className="stat-row">
+            <span className="stat-label">Status</span>
+            <span className="stat-advice">{spendingMessage}</span>
+          </div>
+          <div className="stat-row">
+            <span className="stat-label">Advice</span>
+            <span className="stat-advice">{adviceMessage}</span>
+          </div>
+        </div>
       </div>
 
 

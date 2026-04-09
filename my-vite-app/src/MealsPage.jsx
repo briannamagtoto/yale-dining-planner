@@ -4,19 +4,19 @@ import './MealsPage.css';
 
 function MealsPage() {
   const navigate = useNavigate();
-  const { weeklyBudget } = useBudget();
+  const { weeklyBudget, mealsByDay } = useBudget();
   const diningPointsLeft = weeklyBudget.diningPointsBudget - weeklyBudget.diningPointsSpent;
   const mealSwipesLeft = weeklyBudget.mealSwipesBudget - weeklyBudget.mealSwipesSpent;
 
   const days = [
-    { name: 'Monday', date: 'Feb 23', meals: 2 },
-    { name: 'Tuesday', date: 'Feb 24', meals: 2 },
-    { name: 'Wednesday', date: 'Feb 25', meals: 2 },
-    { name: 'Thursday', date: 'Feb 26', meals: 2 },
-    { name: 'Friday', date: 'Feb 27', meals: 2 },
-    { name: 'Saturday', date: 'Feb 28', meals: 2 },
-    { name: 'Sunday', date: 'March 1', meals: 2 },
-  ];
+    { name: 'Monday', date: 'Feb 23' },
+    { name: 'Tuesday', date: 'Feb 24' },
+    { name: 'Wednesday', date: 'Feb 25' },
+    { name: 'Thursday', date: 'Feb 26' },
+    { name: 'Friday', date: 'Feb 27' },
+    { name: 'Saturday', date: 'Feb 28' },
+    { name: 'Sunday', date: 'March 1' },
+  ].map((day) => ({ ...day, 'meals': mealsByDay[day.name.toLowerCase()]?.length ?? 0 }));
 
   return (
     <div className="meals-container">
@@ -53,7 +53,7 @@ function MealsPage() {
                 <span className="day-name">{day.name}</span>
                 <span className="day-date">{day.date}</span>
               </div>
-              <span className="meal-count">{day.meals} meals &gt;</span>
+              <span className="meal-count">{day.meals} meals logged &gt;</span>
             </button>
           ))}
         </div>
