@@ -17,7 +17,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 I'm not sure what the stuff above is from but the stuff below is the template:
 
-# Example React App Created with Vite
+# React App Created with Vite
 
 This README exemplifies all the sections that are expected in the code `README.md` file for Assignment 5. This file can be used as a template for the assignment: students are suggested to keep the sections, but change their content as needed.
 
@@ -40,7 +40,21 @@ npm run dev  # run the application on localhost
 
 This section should describe the project concept: what is the problem space and the intended users? what solution is proposed for the problem? how is this solution novel?
 
+### Problem Space: 
+
 We are addressing student difficulties with dining hall meal plan optimization. Often, students have trouble managing their dining points and/or meal swipes, leaving them with leftover points/swipes at the end of the semester that go to waste, or leaving them with none left at the end of the semester/quarter/year (wasted money or hunger). They may also encounter other related issues, like not enough meal swipes to get through the week or wasting meal swipes in a certain week. It is difficult to track off the top of a student's head, or by other means, how many swipes/points they have used.
+
+### Solution Space: 
+The landing page on our website has two tabs for Logging Weekly Meals (Budget Planning) and Analyzing Spending (Budget Analytics) in addition to a tab for seeing the Yale dining menus for the day. Broadly, the budget planning tab supports task 1 while the budget analytics tab supports task 2. 
+
+In the budget planning tab, one can see the current meal plan usage and there exists a calendar to plan out weekly meal usage. The calendar view allows students to account for their schedule and set a budget for the week as well as see their usage through the week as they proceed. By clicking on each date from the calendar view, students can input and plan the meals for the week. This directly helps support task 1 we discussed above as students are able to determine their balance and make a plan for the week.
+
+In the budget analytics tab, one can see the overall meal plan usage for the week and for the semester in terms of pie charts and bar charts showing the overall usage for the week, which allows students to analyze their current spending for the week and make changes accordingly. This aids students meet the requirements for task 2 discussed above.
+
+### How is the solution unique:
+
+Currently there are no existing solutions on campus which allow students to view their meal point balance and optimize/plan for their meal plans. The reason why our solution is better than 3rd party applications is because it is personalized to Yale students. Particularly, students will have a single platform to support their meal plan planning including viewing meals, adding their weekly usage as well as analyzing their meal plan usage using summary statistics. We believe that the summary statistics tab along with the personalization makes our solution better particularly for Yale students. 
+
 
 ### Task 1
 
