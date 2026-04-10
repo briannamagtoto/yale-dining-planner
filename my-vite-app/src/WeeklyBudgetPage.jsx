@@ -56,7 +56,7 @@ function DonutChart({ remaining, spent, remainingLabel, spentLabel }) {
 
 export default function WeeklyBudgetPage() {
   const navigate = useNavigate();
-  const { weeklyBudget, setWeeklyBudget } = useBudget();
+  const { weeklyBudget, setWeeklyBudget, mealsByDay } = useBudget();
   const [adjustValue, setAdjustValue] = useState('');
 
   const { diningPointsBudget, diningPointsSpent, mealSwipesBudget, mealSwipesSpent, outOfPocketSpent } = weeklyBudget;
@@ -64,7 +64,9 @@ export default function WeeklyBudgetPage() {
   const diningPointsRemaining = diningPointsBudget - diningPointsSpent;
   const mealSwipesRemaining   = mealSwipesBudget - mealSwipesSpent;
 
-  const dayOfWeek = 1; // Week starts on Monday
+  const DAY_ORDER = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  const lastLoggedIndex = DAY_ORDER.reduce((last, day, i) => (mealsByDay[day]?.length > 0 ? i : last), 0);
+  const dayOfWeek = lastLoggedIndex + 1; // 1-based; defaults to 1 (Monday) if no meals logged
 
   const totalDaysInWeek = 7;
 
