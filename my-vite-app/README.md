@@ -29,7 +29,7 @@ The application was originally created with Vite 8, as shown below:
 npm create vite@latest my-vite-app
 ```
 
-To build and run the application:
+To build and run the application, within the source dir:
 
 ```bash
 npm install
