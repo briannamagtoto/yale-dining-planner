@@ -111,6 +111,8 @@ Pranay Raj Kapoor: I used Claude Code and ChatGPT. I used ChatGPT to set up the 
 
 Liya Fasil: I used Gemini's chatbot, similar to how we did in class, to turn our figma sketch into a few of our website pages. I had it generate the code given a sketch of the page and instructions to turn the style from the image into css styling, and made changes as necessary to ensure things were working as expected. The purpose was to find the right libraries that would create the desired visual effect for the webpages I was particularly working on.
 
+Brianna Magtoto: I used Claude Code to create the add/edit/delete meal pages. I gave Claude Code an image of our Figma protoype and prompted it to implement the changes using similar styling - like we did during the Vibecoding lesson in class. I then made sure everything was responsive and working. 
+
 ## Link to the team’s GitHub repo
 
 [Link to Github Repo](https://github.com/briannamagtoto/yale-dining-planner)
@@ -122,3 +124,5 @@ For each team member, explain what they contributed to the code prototype
 Pranay Raj Kapoor: I helped with the design and implementation of the landing page and the majority of the Budget Analytics tabs for semester and weekly balance. I also supported the team ensuring the state variables from logging meals in Meal Distribution reflected changes in the Budget Analytics section.
 
 Liya Fasil: I added the meal distribution calendar page and the individual day page, including their css styling, buttons functionality, routing, etc. I helped my team scope out roles and communicate.
+
+Brianna Magtoto: I implemented the add/edit/delete meal pages for our project. 
