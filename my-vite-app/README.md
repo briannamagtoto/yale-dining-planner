@@ -107,11 +107,15 @@ Steps involved in Task 2:
 
 Was AI used? If yes, indicate what AI model/interface was used, for what purpose, how the model was prompted, etc.
 
+AI was used.
+
 Pranay Raj Kapoor: I used Claude Code and ChatGPT. I used ChatGPT to set up the landing pages while Claude Code was prompted to create the budget analytics pages and also create the context variables for dyanmically updating the website state when users added meals. I provided Claude Code with a picture of the Budget Analytics Figma prototypes and had it implement the Budget Analytics pages. I also prompted Claude Code to update the Semester and Weekly Balances based on user input in the Meal Distributions sections.
 
 Liya Fasil: I used Gemini's chatbot, similar to how we did in class, to turn our figma sketch into a few of our website pages. I had it generate the code given a sketch of the page and instructions to turn the style from the image into css styling, and made changes as necessary to ensure things were working as expected. The purpose was to find the right libraries that would create the desired visual effect for the webpages I was particularly working on.
 
 Brianna Magtoto: I used Claude Code to create the add/edit/delete meal pages. I gave Claude Code an image of our Figma protoype and prompted it to implement the changes using similar styling - like we did during the Vibecoding lesson in class. I then made sure everything was responsive and working. 
+
+Alyssa Quarles: I used ChatGPT. I used ChatGPT to create variables comparing use of dining points to the weekly budget to determine the spending status on the Weekly Budget Overview. I prompted the model by giving it the variable we already had tracking spending and asking for low spending, high spending, and on track spending booleans to be calculated based on those variables and the current day of the week. I also used ChatGPT to implement the information boxes on the Meals This Week page. I prompted the model by asking it to create a button with an i icon typical for information buttons. I asked for a pop up with text to apppear when the information button was pressed and for that pop up to have a button that closed the pop up when pressed.
 
 ## Link to the team’s GitHub repo
 
@@ -126,3 +130,5 @@ Pranay Raj Kapoor: I helped with the design and implementation of the landing pa
 Liya Fasil: I added the meal distribution calendar page and the individual day page, including their css styling, buttons functionality, routing, etc. I helped my team scope out roles and communicate.
 
 Brianna Magtoto: I implemented the add/edit/delete meal pages for our project. 
+
+Alyssa Quarles: I worked on implementing the Budget Analytics page for the weekly budget overview. I also implemented information boxes on the Meals This Week page. 
