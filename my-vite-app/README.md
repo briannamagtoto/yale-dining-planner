@@ -49,16 +49,15 @@ Task 1: Students want to determine their weekly budget based on their current di
 Steps involved in Task 1:
 
 1. Check current balance
+   The student checks their current dining points and meal swipe balance (e.g., by swiping, making a small purchase at a dining hall or retail location, or by checking on Yale Hospitality).
 
-The student checks their current dining points and meal swipe balance (e.g., by swiping, making a small purchase at a dining hall or retail location, or by checking on Yale Hospitality).
-
-2. Plan points over time
+3. Plan points over time
    The student considers how many points they have left and divides them across the remaining time period (e.g., per week or per day).
 
-3. Account for schedule and habits
+4. Account for schedule and habits
    The student factors in their academic schedule, time availability, usual eating patterns (breakfast/lunch/dinner), and typical food cravings.
 
-4. Set a meal budget
+5. Set a meal budget
    Based on the plan, the student determines how many points they can spend on the current meal.
 
 ### Task 2
