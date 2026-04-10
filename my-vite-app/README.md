@@ -109,7 +109,7 @@ Was AI used? If yes, indicate what AI model/interface was used, for what purpose
 
 Pranay Raj Kapoor: I used Claude Code and ChatGPT. I used ChatGPT to set up the landing pages while Claude Code was prompted to create the budget analytics pages and also create the context variables for dyanmically updating the website state when users added meals. I provided Claude Code with a picture of the Budget Analytics Figma prototypes and had it implement the Budget Analytics pages. I also prompted Claude Code to update the Semester and Weekly Balances based on user input in the Meal Distributions sections.
 
-Liya Fasil: I used Gemini's chatbot, similar to how we did in class, to turn our figma sketch into a few of our website pages. I had it generate the code given a sketch of the page, and made changes as necessary to ensure things were working as expected.
+Liya Fasil: I used Gemini's chatbot, similar to how we did in class, to turn our figma sketch into a few of our website pages. I had it generate the code given a sketch of the page and instructions to turn the style from the image into css styling, and made changes as necessary to ensure things were working as expected. The purpose was to find the right libraries that would create the desired visual effect for the webpages I was particularly working on.
 
 ## Link to the team’s GitHub repo
 
