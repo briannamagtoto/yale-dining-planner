@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useBudget } from './BudgetContext';
 import './DayPage.css';
@@ -16,8 +17,9 @@ function DayPage() {
   const navigate = useNavigate();
   const { dayId } = useParams();
   const dayData = MOCK_DAYS[dayId] || MOCK_DAYS.monday;
-  const { mealsByDay, weeklyBudget } = useBudget();
+  const { mealsByDay, weeklyBudget, deleteMeal } = useBudget();
   const meals = mealsByDay[dayId] ?? [];
+  const [confirmDelete, setConfirmDelete] = useState(null);
 
   const swipesRemaining = weeklyBudget.mealSwipesBudget - weeklyBudget.mealSwipesSpent;
   const pointsRemaining = weeklyBudget.diningPointsBudget - weeklyBudget.diningPointsSpent;
@@ -45,7 +47,7 @@ function DayPage() {
       </button>
 
       <header className="meals-header">
-        <h1>{dayData.name}’s Meals</h1>
+        <h1>{dayData.name}'s Meals</h1>
         <p className="date-range">{dayData.date}</p>
       </header>
 
@@ -86,10 +88,16 @@ function DayPage() {
                     <span className="meal-cost-badge">{meal.cost}</span>
                   </div>
                   <div className="meal-actions">
-                    <button className="icon-btn delete-btn">
+                    <button
+                      className="icon-btn delete-btn"
+                      onClick={() => setConfirmDelete({ id: meal.id, location: meal.location })}
+                    >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
                     </button>
-                    <button className="icon-btn edit-btn">
+                    <button
+                      className="icon-btn edit-btn"
+                      onClick={() => navigate(`/day-meals/${dayId}/edit/${meal.id}`, { state: { meal } })}
+                    >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     </button>
                   </div>
@@ -98,9 +106,34 @@ function DayPage() {
             )}
           </div>
 
-          <button className="add-meal-btn">
+          <button className="add-meal-btn" onClick={() => navigate(`/day-meals/${dayId}/add`)}>
             + Add a Meal
           </button>
+
+          {confirmDelete && (
+            <div className="delete-modal-overlay">
+              <div className="delete-modal">
+                <p>Are you sure you want to delete '{confirmDelete.location}'?</p>
+                <div className="delete-modal-actions">
+                  <button
+                    className="modal-confirm-btn"
+                    onClick={() => {
+                      deleteMeal(dayId, confirmDelete.id);
+                      setConfirmDelete(null);
+                    }}
+                  >
+                    Yes
+                  </button>
+                  <button
+                    className="modal-confirm-btn"
+                    onClick={() => setConfirmDelete(null)}
+                  >
+                    No
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </main>
       </div>
     </div>

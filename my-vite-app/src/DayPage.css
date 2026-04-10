@@ -85,6 +85,56 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+  }
+
+  .delete-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .delete-modal {
+    background-color: #0b3d6e;
+    color: white;
+    border-radius: 12px;
+    padding: 30px 36px;
+    text-align: center;
+    max-width: 340px;
+    width: 90%;
+  }
+
+  .delete-modal p {
+    margin: 0 0 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .delete-modal-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .modal-confirm-btn {
+    background-color: #b8cce4;
+    color: #0b3d6e;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 28px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .modal-confirm-btn:hover {
+    background-color: #a9c4df;
   }
   
   .day-info-header {
