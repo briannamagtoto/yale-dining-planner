@@ -31,6 +31,10 @@ function DayPage() {
     const match = m.cost.match(/^([\d.]+)\s*points?/i);
     return sum + (match ? parseFloat(match[1]) : 0);
   }, 0);
+  const dollarsSpent = meals.reduce((sum, m) => {
+    const match = m.cost.match(/^\$([\d.]+)/);
+    return sum + (match ? parseFloat(match[1]) : 0);
+  }, 0);
 
   const daySwipes = daySwipesAlloc - swipesUsed;
   const dayPoints = Math.max(0, dayPointsAlloc - pointsUsed).toFixed(2);
@@ -61,7 +65,7 @@ function DayPage() {
             <span className="day-stat-label">points left</span>
           </div>
           <div className="day-stat">
-            <span className="day-stat-value">$0.00</span>
+            <span className="day-stat-value">${dollarsSpent.toFixed(2)}</span>
             <span className="day-stat-label">dollars spent</span>
           </div>
         </aside>

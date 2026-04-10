@@ -59,7 +59,7 @@ export default function WeeklyBudgetPage() {
   const { weeklyBudget, setWeeklyBudget } = useBudget();
   const [adjustValue, setAdjustValue] = useState('');
 
-  const { diningPointsBudget, diningPointsSpent, mealSwipesBudget, mealSwipesSpent } = weeklyBudget;
+  const { diningPointsBudget, diningPointsSpent, mealSwipesBudget, mealSwipesSpent, outOfPocketSpent } = weeklyBudget;
 
   const diningPointsRemaining = diningPointsBudget - diningPointsSpent;
   const mealSwipesRemaining   = mealSwipesBudget - mealSwipesSpent;

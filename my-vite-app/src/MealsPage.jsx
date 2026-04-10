@@ -8,6 +8,7 @@ function MealsPage() {
   const { weeklyBudget, mealsByDay } = useBudget();
   const diningPointsLeft = weeklyBudget.diningPointsBudget - weeklyBudget.diningPointsSpent;
   const mealSwipesLeft = weeklyBudget.mealSwipesBudget - weeklyBudget.mealSwipesSpent;
+  const outOfPocketSpent = weeklyBudget.outOfPocketSpent ?? 0;
 
 
   const [showTotalInfo, setShowTotalInfo] = useState(false);
@@ -48,7 +49,7 @@ function MealsPage() {
           <span className="stat-label">points left</span>
         </div>
         <div className="stat">
-          <span className="stat-value">$0.00</span>
+          <span className="stat-value">${outOfPocketSpent.toFixed(2)}</span>
           <span className="stat-label">dollars spent</span>
         </div>
       </aside>
