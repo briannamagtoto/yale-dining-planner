@@ -104,6 +104,8 @@ Was AI used? If yes, indicate what AI model/interface was used, for what purpose
 
 Pranay Raj Kapoor: I used Claude Code and ChatGPT. I used ChatGPT to set up the landing pages while Claude Code was prompted to create the budget analytics pages and also create the context variables for dyanmically updating the website state when users added meals. I provided Claude Code with a picture of the Budget Analytics Figma prototypes and had it implement the Budget Analytics pages. I also prompted Claude Code to update the Semester and Weekly Balances based on user input in the Meal Distributions sections.
 
+Liya Fasil: I used Gemini's chatbot, similar to how we did in class, to turn our figma sketch into a few of our website pages. I had it generate the code given a sketch of the page, and made changes as necessary to ensure things were working as expected.
+
 ## Link to the team’s GitHub repo
 
 [Link to Github Repo](https://github.com/briannamagtoto/yale-dining-planner)
@@ -113,3 +115,5 @@ Pranay Raj Kapoor: I used Claude Code and ChatGPT. I used ChatGPT to set up the 
 For each team member, explain what they contributed to the code prototype
 
 Pranay Raj Kapoor: I helped with the design and implementation of the landing page and the majority of the Budget Analytics tabs for semester and weekly balance. I also supported the team ensuring the state variables from logging meals in Meal Distribution reflected changes in the Budget Analytics section.
+
+Liya Fasil: I added the meal distribution calendar page and the individual day page, including their css styling, buttons functionality, routing, etc. I helped my team scope out roles and communicate.
