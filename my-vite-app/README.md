@@ -48,16 +48,16 @@ Task 1: Students want to determine their weekly budget based on their current di
 
 Steps involved in Task 1:
 
-1. Check current balance
+1. Check current balance:
    The student checks their current dining points and meal swipe balance (e.g., by swiping, making a small purchase at a dining hall or retail location, or by checking on Yale Hospitality).
 
-3. Plan points over time
+3. Plan points over time:
    The student considers how many points they have left and divides them across the remaining time period (e.g., per week or per day).
 
-4. Account for schedule and habits
+4. Account for schedule and habits:
    The student factors in their academic schedule, time availability, usual eating patterns (breakfast/lunch/dinner), and typical food cravings.
 
-5. Set a meal budget
+5. Set a meal budget:
    Based on the plan, the student determines how many points they can spend on the current meal.
 
 ### Task 2
@@ -66,22 +66,22 @@ Task 2: Students want to analyse their budget on a larger-scale, seeing how they
 
 Steps involved in Task 2:
 
-1. Review overall dining usage
+1. Review overall dining usage:
    Students look at their total meal swipes and dining points used over a longer period (e.g., weekly or monthly), rather than per meal.
 
-2. Compare spending pace to time remaining
+2. Compare spending pace to time remaining:
    Students analyze whether their current rate of spending aligns with how much of the semester remains, identifying under- or over-spending patterns.
 
-3. Evaluate habits and patterns
+3. Evaluate habits and patterns:
    Students reflect on when, where, and why they tend to spend more or less (schedule constraints, cravings, convenience, or repeated choices).
 
-4. Adjust future budget allocations
+4. Adjust future budget allocations:
    Based on this analysis, students redistribute points and swipes across upcoming weeks or meals, adding leftover points or compensating for overspending.
 
-5. Set updated spending goals
+5. Set updated spending goals:
    Students define new weekly or per-meal targets that better reflect their habits and long-term budget goals.
 
-6. Track progress and iterate
+6. Track progress and iterate:
    Students continue monitoring their usage over time, making gradual, habitual changes rather than reactive, one-off decisions.
 
 ## How the team members used AI
