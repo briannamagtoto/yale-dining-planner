@@ -21,12 +21,10 @@ function DayPage() {
   const meals = mealsByDay[dayId] ?? [];
   const [confirmDelete, setConfirmDelete] = useState(null);
 
-  const swipesRemaining = weeklyBudget.mealSwipesBudget - weeklyBudget.mealSwipesSpent;
-  const pointsRemaining = weeklyBudget.diningPointsBudget - weeklyBudget.diningPointsSpent;
-  const baseSwipes = Math.floor(swipesRemaining / 7);
-  const extraSwipeDays = swipesRemaining % 7;
+  const baseSwipes = Math.floor(weeklyBudget.mealSwipesBudget / 7);
+  const extraSwipeDays = weeklyBudget.mealSwipesBudget % 7;
   const daySwipesAlloc = baseSwipes + (dayData.index < extraSwipeDays ? 1 : 0);
-  const dayPointsAlloc = pointsRemaining / 7;
+  const dayPointsAlloc = weeklyBudget.diningPointsBudget / 7;
 
   const swipesUsed = meals.filter((m) => m.cost.toLowerCase().includes('swipe')).length;
   const pointsUsed = meals.reduce((sum, m) => {

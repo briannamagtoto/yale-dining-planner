@@ -1,5 +1,5 @@
 // Code below generated using Claude Code
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 const BudgetContext = createContext();
 
@@ -32,14 +32,14 @@ export function BudgetProvider({ children }) {
   const [semesterDays, setSemesterDays] = useState({ total: 100, completed: 48 });
   const [weeklyBudget, setWeeklyBudget] = useState({
     diningPointsBudget: 40,
-    diningPointsSpent: 16,
+    diningPointsSpent: 8,
     mealSwipesBudget: 14,
     mealSwipesSpent: 1,
     outOfPocketSpent: 0,
   });
   const [mealsByDay, setMealsByDay] = useState({
     monday: [
-      { id: 1, time: '8:30AM', location: 'Breakfast at The Elm', cost: '16 points' },
+      { id: 1, time: '8:30AM', location: 'Breakfast at The Elm', cost: '8 points' },
       { id: 2, time: '2:30PM', location: 'Lunch at Silliman', cost: '1 Swipe' },
     ],
     tuesday: [],
@@ -50,8 +50,22 @@ export function BudgetProvider({ children }) {
     sunday: [],
   });
 
+  // Tracks the previous week totals so we can apply deltas to semester remaining
+  const prevTotalsRef = useRef(null);
+
   useEffect(() => {
     const totals = calcTotals(mealsByDay);
+
+    if (prevTotalsRef.current !== null) {
+      const deltaPoints = totals.diningPointsSpent - prevTotalsRef.current.diningPointsSpent;
+      const deltaSwipes = totals.mealSwipesSpent - prevTotalsRef.current.mealSwipesSpent;
+      if (deltaPoints !== 0)
+        setDiningPoints(prev => ({ ...prev, remaining: Math.max(0, prev.remaining - deltaPoints) }));
+      if (deltaSwipes !== 0)
+        setMealSwipes(prev => ({ ...prev, remaining: Math.max(0, prev.remaining - deltaSwipes) }));
+    }
+
+    prevTotalsRef.current = totals;
     setWeeklyBudget(prev => ({ ...prev, ...totals }));
   }, [mealsByDay]);
 
